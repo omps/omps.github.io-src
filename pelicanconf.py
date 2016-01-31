@@ -11,7 +11,7 @@ PATH = 'content'
 TIMEZONE = 'Asia/Kolkata'
 
 DEFAULT_LANG = u'en'
-
+THEME = '/Users/omps/pelican-themes/pelican-bootstrap3/'
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
