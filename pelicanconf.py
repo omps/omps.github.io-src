@@ -7,7 +7,10 @@ SITENAME = u'omps.in'
 SITEURL = ''
 
 PATH = 'content'
-
+BOOTSTRAP_FLUID = True
+DISPLAY_ARTICLE_INFO_ON_INDEX = True
+BANNER = ''
+BANNER_SUBTITLE = 'Just Hanging Around'
 TIMEZONE = 'Asia/Kolkata'
 
 DEFAULT_LANG = u'en'
@@ -26,12 +29,17 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
          ('You can modify those links in your config file', '#'),)
 
 # Social widget
-SOCIAL = (('Github', 'https://www.github.com/omps/'),
-          ('Stackoverflow', 'http://stackexchange.com/users/1543748/omps'),
-          ('Twitter', 'https://twitter.com/ohgnis'),
-          ('Linkedin', 'https://in.linkedin.com/in/ompsingh'),)
+SOCIAL = (('github', 'https://www.github.com/omps/'),
+          ('linkedin', 'https://twitter.com/ohgnis'),
+          ('twitter', 'https://in.linkedin.com/in/ompsingh'),
+          ('stackoverflow', 'http://stackexchange.com/users/1543748/omps'),)
 
+HIDE_SIDEBAR = False
 DEFAULT_PAGINATION = 10
+
+DOCUTIL_CSS = True
+GITHUB_USER = 'omps'
+GITHUB_REPO_COUNT = 'omps'
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
