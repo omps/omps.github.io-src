@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>Wordrpess on docker. - omps.in</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/wordrpess-on-docker.html">
+
+        <meta name="author" content="Om Prakash Singh" />
+        <meta name="keywords" content="Linux,docker,wordpress,configure" />
+        <meta name="description" content="Setting up the environment for my wordpress. Virtual box make system slow. Docker is good to have. Setting it up now… My system: its a macbook pro. General system Requirement: 64Bit arch CPU, Windows/Linux/Mac will do. Install images are on the docker site. Get Docker: Docker require to ..." />
+
+        <meta property="og:site_name" content="omps.in" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Wordrpess on docker."/>
+        <meta property="og:url" content="/wordrpess-on-docker.html"/>
+        <meta property="og:description" content="Setting up the environment for my wordpress. Virtual box make system slow. Docker is good to have. Setting it up now… My system: its a macbook pro. General system Requirement: 64Bit arch CPU, Windows/Linux/Mac will do. Install images are on the docker site. Get Docker: Docker require to ..."/>
+        <meta property="article:published_time" content="2016-02-26" />
+            <meta property="article:section" content="howto" />
+            <meta property="article:tag" content="Linux" />
+            <meta property="article:tag" content="docker" />
+            <meta property="article:tag" content="wordpress" />
+            <meta property="article:tag" content="configure" />
+            <meta property="article:author" content="Om Prakash Singh" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/html4css1.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+omps.in            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="/category/configuration.html">Configuration</a>
+                        </li>
+                        <li >
+                            <a href="/category/emacs.html">Emacs</a>
+                        </li>
+                        <li >
+                            <a href="/category/games.html">Games</a>
+                        </li>
+                        <li class="active">
+                            <a href="/category/howto.html">Howto</a>
+                        </li>
+                        <li >
+                            <a href="/category/misc.html">Misc</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/wordrpess-on-docker.html"
+                       rel="bookmark"
+                       title="Permalink to Wordrpess on docker.">
+                        Wordrpess on docker.
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-02-26T00:00:00+05:30"> Fri 26 February 2016</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/linux.html">Linux</a>
+        /
+	<a href="/tag/docker.html">docker</a>
+        /
+	<a href="/tag/wordpress.html">wordpress</a>
+        /
+	<a href="/tag/configure.html">configure</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Setting up the environment for my wordpress. Virtual box make system slow. Docker is good to have.</p>
+<p>Setting it up now&#x2026;</p>
+<p>My system: its a macbook pro.
+General system Requirement: 64Bit arch CPU, Windows/Linux/Mac will do. Install images are on the docker site.
+Get Docker: Docker require to have a 64 bit system and I am glad I have one.</p>
+<h5>Install Boot2Docker<a id="sec-1" name="sec-1"></a></h5>
+<ol>
+<li>
+<p>Go to the <a href="https://github.com/boot2docker/osx-installer/releases/latest">boot2docker/osx-installer</a> release page.</p>
+</li>
+<li>
+<p>Download Boot2Docker by clicking Boot2Docker-x.x.x.pkg in the "Downloads" section.</p>
+</li>
+<li>
+<p>Install Boot2Docker by double-clicking the package.
+    The installer places Boot2Docker in your "Applications" folder.</p>
+</li>
+</ol>
+<p>The installation places the docker and boot2docker binaries in your /usr/local/bin directory.</p>
+<h5>Start the Boot2Docker Application<a id="sec-2" name="sec-2"></a></h5>
+<p>To run a Docker container, you first start the boot2docker VM and then issue docker commands to create, load, and manage containers. You can launch boot2docker from your Applications folder or from the command line.</p>
+<p>NOTE: Boot2Docker is designed as a development tool. You should not use it in production environments.
+From the Applications folder
+When you launch the "Boot2Docker" application from your "Applications" folder, the application:</p>
+<p>opens a terminal window</p>
+<p>creates a $HOME/.boot2docker directory</p>
+<p>creates a VirtualBox ISO and certs</p>
+<p>starts a VirtualBox VM running the docker daemon</p>
+<p>Once the launch completes, you can run docker commands. A good way to verify your setup succeeded is to run the hello-world container.</p>
+<p>$ docker run hello-world
+Unable to find image 'hello-world:latest' locally
+511136ea3c5a: Pull complete
+31cbccb51277: Pull complete
+e45a5af57b00: Pull complete
+hello-world:latest: The image you are pulling has been verified. Important: image verification is a tech preview feature and should not be relied on to provide security.
+Status: Downloaded newer image for hello-world:latest
+Hello from Docker.
+This message shows that your installation appears to be working correctly.</p>
+<p>To generate this message, Docker took the following steps:</p>
+<ol>
+<li>The Docker client contacted the Docker daemon.</li>
+<li>The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (Assuming it was not already locally available.)</li>
+<li>The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.</li>
+<li>The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.</li>
+</ol>
+<p>To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash</p>
+<p>For more examples and ideas, visit:
+ <a href="http://docs.docker.com/userguide/">http://docs.docker.com/userguide/</a>
+A more typical way to start and stop boot2docker is using the command line.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://www.github.com/omps/"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+                <li class="list-group-item"><a href="https://twitter.com/ohgnis"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+                <li class="list-group-item"><a href="https://in.linkedin.com/in/ompsingh"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="http://stackexchange.com/users/1543748/omps"><i class="fa fa-stackoverflow-square fa-lg"></i> stackoverflow</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
+
+    <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
+        <div id="gh_repos">
+            <p class="list-group-item">Status updating...</p>
+        </div>
+    </li>
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://jinja.pocoo.org/" target="_blank">
+                Jinja2
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="#" target="_blank">
+                You can modify those links in your config file
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container-fluid">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 omps
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <!-- GitHub JS -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'omps',
+                count: omps,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+    <!-- End GitHub JS Code -->
+
+</body>
+</html>
